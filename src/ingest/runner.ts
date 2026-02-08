@@ -1,0 +1,88 @@
+import type { AdapterContext, Logger } from '../types/source.js';
+import { FetchHttpClient } from '../utils/http.js';
+import { adapterRegistry } from '../adapters/registry.js';
+
+/**
+ * Console logger implementation
+ */
+class ConsoleLogger implements Logger {
+  debug(message: string, ...args: unknown[]): void {
+    console.debug(message, ...args);
+  }
+  info(message: string, ...args: unknown[]): void {
+    console.info(message, ...args);
+  }
+  warn(message: string, ...args: unknown[]): void {
+    console.warn(message, ...args);
+  }
+  error(message: string, ...args: unknown[]): void {
+    console.error(message, ...args);
+  }
+}
+
+/**
+ * Run ingestion for a specific adapter (stub)
+ */
+export async function runSource(adapterName: string): Promise<void> {
+  const logger = new ConsoleLogger();
+
+  logger.info(`[Runner] Starting ingestion for source: ${adapterName}`);
+
+  const adapter = adapterRegistry.get(adapterName);
+
+  if (!adapter) {
+    logger.error(`[Runner] Adapter not found: ${adapterName}`);
+    logger.info(`[Runner] Available adapters: ${adapterRegistry.listNames().join(', ')}`);
+    return;
+  }
+
+  const ctx = createContext(logger);
+
+  try {
+    logger.info(`[Runner] Discovering events for ${adapter.meta.adapterName}...`);
+    const eventUrls = await adapter.discover(ctx);
+    logger.info(`[Runner] Discovered ${eventUrls.length} event URLs`);
+
+    // Placeholder: would iterate through URLs and extract events
+    logger.info(`[Runner] Would extract ${eventUrls.length} events (placeholder)`);
+
+    logger.info(`[Runner] Completed ingestion for ${adapterName}`);
+  } catch (error) {
+    logger.error(`[Runner] Error during ingestion: ${error}`);
+  }
+}
+
+/**
+ * Run ingestion for all adapters in a refresh group (stub)
+ */
+export async function runGroup(group: 0 | 1 | 2 | 3): Promise<void> {
+  const logger = new ConsoleLogger();
+
+  logger.info(`[Runner] Starting ingestion for group ${group}`);
+
+  const adapters = adapterRegistry.getByGroup(group);
+
+  if (adapters.length === 0) {
+    logger.warn(`[Runner] No adapters found in group ${group}`);
+    return;
+  }
+
+  logger.info(`[Runner] Found ${adapters.length} adapters in group ${group}`);
+
+  for (const adapter of adapters) {
+    await runSource(adapter.meta.adapterName);
+  }
+
+  logger.info(`[Runner] Completed ingestion for group ${group}`);
+}
+
+/**
+ * Create adapter context
+ */
+function createContext(logger: Logger): AdapterContext {
+  return {
+    logger,
+    http: new FetchHttpClient(),
+    now: () => new Date(),
+  };
+}
