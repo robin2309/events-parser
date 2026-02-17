@@ -35,6 +35,9 @@ export interface NormalizedEvent {
   /** Physical address */
   locationAddress?: string | null;
 
+  /** Ticket/booking URL */
+  ticketUrl?: string | null;
+
   /** Event status */
   status?: 'active' | 'cancelled' | 'hidden';
 

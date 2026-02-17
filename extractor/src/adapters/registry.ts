@@ -1,5 +1,7 @@
 import type { BaseAdapter } from './base.js';
 import { ExampleVenueAdapter } from './exampleVenue.adapter.js';
+import { LeSucreAdapter } from './leSucre.adapter.js';
+import { LeTransbordeurAdapter } from './leTransbordeur.adapter.js';
 
 /**
  * Adapter registry mapping adapter names to instances
@@ -16,6 +18,8 @@ export class AdapterRegistry {
    */
   private registerDefaults(): void {
     this.register(new ExampleVenueAdapter());
+    this.register(new LeSucreAdapter());
+    this.register(new LeTransbordeurAdapter());
   }
 
   /**

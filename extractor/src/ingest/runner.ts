@@ -1,6 +1,8 @@
 import type { AdapterContext, Logger } from '../types/source.js';
 import { FetchHttpClient } from '../utils/http.js';
 import { adapterRegistry } from '../adapters/registry.js';
+import { upsertEvents } from '../db/upsertEvents.js';
+import { closePool } from '../db/pool.js';
 
 /**
  * Console logger implementation
@@ -43,10 +45,24 @@ export async function runSource(adapterName: string): Promise<void> {
     const eventUrls = await adapter.discover(ctx);
     logger.info(`[Runner] Discovered ${eventUrls.length} event URLs`);
 
-    // Placeholder: would iterate through URLs and extract events
-    logger.info(`[Runner] Would extract ${eventUrls.length} events (placeholder)`);
+    let totalUpserted = 0;
 
-    logger.info(`[Runner] Completed ingestion for ${adapterName}`);
+    for (const url of eventUrls) {
+      try {
+        const res = await ctx.http.get(url);
+        const events = await adapter.extract(ctx, url, res.body);
+
+        if (events.length > 0) {
+          const count = await upsertEvents(events);
+          totalUpserted += count;
+          logger.info(`[Runner] Upserted ${count} event(s) from ${url}`);
+        }
+      } catch (err) {
+        logger.error(`[Runner] Failed to process ${url}: ${err}`);
+      }
+    }
+
+    logger.info(`[Runner] Completed ${adapterName}: ${totalUpserted} events upserted`);
   } catch (error) {
     logger.error(`[Runner] Error during ingestion: ${error}`);
   }
@@ -74,6 +90,7 @@ export async function runGroup(group: 0 | 1 | 2 | 3): Promise<void> {
   }
 
   logger.info(`[Runner] Completed ingestion for group ${group}`);
+  await closePool();
 }
 
 /**

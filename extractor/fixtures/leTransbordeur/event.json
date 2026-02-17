@@ -1,0 +1,45 @@
+{
+  "id": 34487,
+  "date": "2025-12-15T17:04:07",
+  "date_gmt": "2025-12-15T17:04:07",
+  "modified": "2026-01-20T13:41:06",
+  "slug": "victorien-05032026",
+  "type": "evenement",
+  "link": "https://www.transbordeur.fr/evenement/victorien-05032026/",
+  "title": {
+    "rendered": "VICTORIEN"
+  },
+  "featured_media": 0,
+  "configuration": [30],
+  "format_spectacle": [46],
+  "genre": [63],
+  "acf": {
+    "suptitle": "",
+    "artistes": [34446],
+    "date": "20260305",
+    "hour": "19:00:00",
+    "price": "27€",
+    "bouton_booking": {
+      "title": "RESERVER",
+      "url": "https://web.digitick.com/victorien-concert-transbordeur-villeurbanne-05-mars-2026-css5-transbordeur-pg101-ri11457411.html",
+      "target": "_blank"
+    },
+    "hour_begin": "19:00:00",
+    "hour_end": "20:00:00",
+    "type_place": "debout-placement-libre",
+    "button_event": {
+      "title": "REJOINDRE L'EVENEMENT FACEBOOK",
+      "url": "https://www.facebook.com/events/877541381611207",
+      "target": "_blank"
+    },
+    "text_desc": "UN CONCERT PROPOSE PAR LE BAZAR ET TOTAAL REZ.",
+    "image_preview": 34490,
+    "content": [
+      {
+        "acf_fc_layout": "descr",
+        "title": "VICTORIEN",
+        "description": "Victorien began with writing and evolved through pop, slam, folk, and chanson styles. His music emphasizes emotional depth and storytelling."
+      }
+    ]
+  }
+}

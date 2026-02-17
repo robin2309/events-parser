@@ -46,9 +46,17 @@ Required event fields:
 - `startAt` (ISO 8601 with timezone or UTC Z)
 - `timezone` (valid IANA timezone string)
 - `eventUrl` (string)
+- `ticketUrl` (string | null — link to buy tickets/book, if available on the event page)
 - `contentHash` (string)
 - `fetchedAt` (ISO 8601)
 - `lastSeenAt` (ISO 8601)
+
+### Ticket URL Extraction
+Adapters MUST attempt to extract a ticket/booking URL from event detail pages. Common patterns:
+- Links with text like "Billetterie", "Tickets", "Réserver", "Book", "Buy Tickets", "RSVP"
+- Links pointing to ticketing platforms (e.g., Shotgun, Dice, Eventbrite, Resident Advisor, Weezevent, Billetweb)
+- Buttons or CTAs with booking-related classes or attributes
+- Set `ticketUrl` to `null` if no ticket link is found on the page
 
 ## EXTRACTION PRIORITY (STRICT ORDER)
 
