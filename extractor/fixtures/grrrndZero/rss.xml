@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="Joomla! - Open Source Content Management" -->
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Agenda GZ - Grrrnd Zero, Salle de concerts et hebergement d activites collectives sur Lyon</title>
+		<description><![CDATA[Grrrnd zero, salle de concert et association independante sur Lyon / Vaulx-en-Velin de Concerts, evenements et hebergement d'associations et d'artistes.]]></description>
+		<link>https://www.grrrndzero.org/index.php</link>
+		<lastBuildDate>Sat, 28 Feb 2026 10:23:16 +0000</lastBuildDate>
+		<language>fr-fr</language>
+		<managingEditor>monsieur.goonie@gmail.com (Grrrnd Zero)</managingEditor>
+		<item>
+			<title>Agenda GZ</title>
+			<link>https://www.grrrndzero.org/index.php/1477-agenda-gz</link>
+			<guid isPermaLink="true">https://www.grrrndzero.org/index.php/1477-agenda-gz</guid>
+			<description><![CDATA[Agenda summary of all upcoming events at Grrrnd Zero]]></description>
+			<category>agenda gz</category>
+			<pubDate>Sat, 28 Feb 2026 10:00:00 +0000</pubDate>
+		</item>
+		<item>
+			<title>SAM 28/02 : BIG SCIENCE DAILY PROGRAM</title>
+			<link>https://www.grrrndzero.org/index.php/2748-sam-28-02-big-science-daily-program</link>
+			<guid isPermaLink="true">https://www.grrrndzero.org/index.php/2748-sam-28-02-big-science-daily-program</guid>
+			<description><![CDATA[Big Science Daily Program event]]></description>
+			<author>mcdefoug@gmail.com (Big Science Daily Program)</author>
+			<category>agenda gz</category>
+			<pubDate>Sat, 28 Feb 2026 14:20:40 +0000</pubDate>
+		</item>
+		<item>
+			<title>JEU 05/03 : CATHERINE MIMOSA &amp; DARK DANGER + CONSTANCE CHLORE + SSM + FERA</title>
+			<link>https://www.grrrndzero.org/index.php/2755-jeu-05-03-catherine-mimosa-dark-danger-constance-chlore-ssm-fera</link>
+			<guid isPermaLink="true">https://www.grrrndzero.org/index.php/2755-jeu-05-03-catherine-mimosa-dark-danger-constance-chlore-ssm-fera</guid>
+			<description><![CDATA[Catherine Mimosa & Dark Danger event]]></description>
+			<author>mcdefoug@gmail.com (Affadis Plein)</author>
+			<category>agenda gz</category>
+			<pubDate>Thu, 05 Mar 2026 10:17:06 +0000</pubDate>
+		</item>
+		<item>
+			<title>SAM 14/03 : JIM E. BROWN + KLAUS PAPAM + SEB RADIX + DANAËL</title>
+			<link>https://www.grrrndzero.org/index.php/2753-sam-14-03-jim-e-brown-klaus-papam-seb-radix-danael</link>
+			<guid isPermaLink="true">https://www.grrrndzero.org/index.php/2753-sam-14-03-jim-e-brown-klaus-papam-seb-radix-danael</guid>
+			<description><![CDATA[Jim E. Brown concert event]]></description>
+			<author>mcdefoug@gmail.com (Trevor Rêveur)</author>
+			<category>agenda gz</category>
+			<pubDate>Sat, 14 Mar 2026 14:43:48 +0000</pubDate>
+		</item>
+	</channel>
+</rss>

@@ -8,16 +8,18 @@ const UPSERT_SQL = `
     location_address, ticket_url, status, fetched_at, last_seen_at, content_hash
   ) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16)
   ON CONFLICT (source_id, event_url) DO UPDATE SET
-    title        = EXCLUDED.title,
-    description  = EXCLUDED.description,
-    start_at     = EXCLUDED.start_at,
-    end_at       = EXCLUDED.end_at,
-    image_url    = EXCLUDED.image_url,
-    ticket_url   = EXCLUDED.ticket_url,
-    status       = EXCLUDED.status,
-    last_seen_at = EXCLUDED.last_seen_at,
-    content_hash = EXCLUDED.content_hash,
-    updated_at   = NOW()
+    title            = EXCLUDED.title,
+    description      = EXCLUDED.description,
+    start_at         = EXCLUDED.start_at,
+    end_at           = EXCLUDED.end_at,
+    image_url        = EXCLUDED.image_url,
+    location_name    = EXCLUDED.location_name,
+    location_address = EXCLUDED.location_address,
+    ticket_url       = EXCLUDED.ticket_url,
+    status           = EXCLUDED.status,
+    last_seen_at     = EXCLUDED.last_seen_at,
+    content_hash     = EXCLUDED.content_hash,
+    updated_at       = NOW()
 `;
 
 export async function upsertEvents(events: NormalizedEvent[]): Promise<number> {

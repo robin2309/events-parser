@@ -2,6 +2,11 @@ import type { BaseAdapter } from './base.js';
 import { ExampleVenueAdapter } from './exampleVenue.adapter.js';
 import { LeSucreAdapter } from './leSucre.adapter.js';
 import { LeTransbordeurAdapter } from './leTransbordeur.adapter.js';
+import { GrrrndZeroAdapter } from './grrrndZero.adapter.js';
+import { AuditoriumLyonAdapter } from './auditoriumLyon.adapter.js';
+import { HalleTonyGarnierAdapter } from './halleTonyGarnier.adapter.js';
+import { LdlcArenaAdapter } from './ldlcArena.adapter.js';
+import { LePetitSalonAdapter } from './lePetitSalon.adapter.js';
 
 /**
  * Adapter registry mapping adapter names to instances
@@ -20,6 +25,11 @@ export class AdapterRegistry {
     this.register(new ExampleVenueAdapter());
     this.register(new LeSucreAdapter());
     this.register(new LeTransbordeurAdapter());
+    this.register(new GrrrndZeroAdapter());
+    this.register(new AuditoriumLyonAdapter());
+    this.register(new HalleTonyGarnierAdapter());
+    this.register(new LdlcArenaAdapter());
+    this.register(new LePetitSalonAdapter());
   }
 
   /**

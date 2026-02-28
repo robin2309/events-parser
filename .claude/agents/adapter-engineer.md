@@ -138,6 +138,16 @@ You MUST NOT change (unless explicitly told):
   - Fail loudly in tests with a clear error message
   - Note the issue in your response
 
+## CONTENT SANITIZATION (MANDATORY)
+
+All extracted text fields (title, description, etc.) MUST be cleaned before returning from `extract()`:
+- **Strip HTML tags**: Remove any `<a>`, `<p>`, `<span>`, etc. tags from extracted text (e.g., JSON-LD `description` fields often contain HTML markup like `<a href="...">text</a>`)
+- **Decode HTML entities**: Convert `&amp;` → `&`, `&quot;` → `"`, `&#39;` → `'`, `&lt;` → `<`, `&gt;` → `>`, `&nbsp;` → ` `, `&apos;` → `'`
+- **Normalize whitespace**: Collapse multiple spaces/newlines into single spaces and trim
+- This applies to ALL text sources: JSON-LD fields, meta tags, RSS CDATA content, HTML element text
+- Add a `stripHtml()` and/or `decodeHtmlEntities()` helper method to the adapter if needed
+- Test for this: include HTML entities in fixtures and assert they are decoded in test output
+
 ## QUALITY PRINCIPLES
 
 - Correctness over cleverness

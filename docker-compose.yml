@@ -16,5 +16,16 @@ services:
       timeout: 5s
       retries: 5
 
+  api:
+    build: ./api
+    container_name: events-api
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgresql://events:events@postgres:5432/events
+    depends_on:
+      postgres:
+        condition: service_healthy
+
 volumes:
   pgdata:
